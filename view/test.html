@@ -1,0 +1,29 @@
+$def with (user)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+    <p>$user['name']</p>
+    <p>$user['passwd']</p>
+    <button id="b1" >点击加一</button>
+    <input id="text" type="text" value="0"> </input>
+
+    <script>
+        var button = document.getElementById("b1");
+        var mytext = document.getElementById("text");
+
+        function myfunction(){
+            var value = mytext.value;
+            console.log(value);
+            mytext.value = parseInt(value)+1;
+        }
+
+        button.onclick=function(){
+            myfunction();
+        }
+    </script>
+</body>
+</html>
