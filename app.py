@@ -6,7 +6,7 @@ urls = (
 
 class hello(object):
     def GET(self):
-        return 'hello word'
+        return 'I just want to say <hello word>'
 
 if __name__ == "__main__":
     app = web.application(urls,globals())

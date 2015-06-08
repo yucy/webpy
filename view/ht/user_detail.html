@@ -1,0 +1,64 @@
+{% extends "html/common/base_ht.html" %}
+
+
+{% block content %}
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>查看关注者详情信息</h5>
+          </div>
+          <div class="widget-content nopadding">
+              <form class="form-horizontal">
+  			       <div id="form-wizard-1" class="step ui-formwizard-content" style="display: block; ">
+                  <div class="control-group">
+                    <label class="control-label">用户名：</label>
+                    <div class="controls">{{user.nickname}}&nbsp;({{user.openid}})&nbsp; </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">头像：</label>
+                    <div class="controls"><img width='40' height='40' src='{{user.headimgurl}}'> </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">性别：</label>
+                    <div class="controls">
+                      {% ifequal user.sex 1 %}
+                        男
+                      {% else %}
+                        女
+                      {% endifequal %}
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">城市：</label>
+                    <div class="controls">{{user.city}} </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">省份：</label>
+                    <div class="controls">{{user.province}} </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">国家：</label>
+                    <div class="controls">{{user.country}} </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">关注时间：</label>
+                    <div class="controls">{{user.subscribe_time}} </div>
+                  </div>
+                </div>
+              </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+
+{% block javascript %}
+
+    $(function(){
+      $("#sidebar ul li:contains('{{menu_name}}')").addClass("active open");
+    });
+
+{% endblock %}

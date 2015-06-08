@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="/static/weixin/qt/js/Index/wiying/light/index.css" />
+
+
+</head>
+
+<body>
+<header>
+    <div class="banner">
+        <div id="wrapper" style="overflow: hidden; ">
+            <div id="scroller">
+                <ul id="thelist">
+                    <li><p></p>
+                        <a href="#"><img src="/static/weixin/qt/images/p1.png" /></a>
+                    </li>
+                    <li><p></p>
+                        <a href="#"><img src="/static/weixin/qt/images/p3.png" /></a>
+                    </li>                
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="nav">
+        <div id="prev" onclick="javascript:myScroll.scrollToPage('prev', 0);"></div>
+        <ul id="indicator">
+            <li class="active"></li><li ></li>        </ul>
+        <div id="next" onclick="javascript:myScroll.scrollToPage('next', 0, 400, 2);"></div>
+    </div>
+    <div class="clr"></div>
+</header>
+<script>
+    var count = document.getElementById("thelist").getElementsByTagName("img").length;
+    for (i = 0; i < count; i++) {
+        document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:" + document.body.clientWidth + "px";
+    }
+    document.getElementById("scroller").style.cssText = " width:" + document.body.clientWidth * count + "px";
+    setInterval(function() {
+        myScroll.scrollToPage('next', 0, 400, count);
+    }, 3500);
+    window.onresize = function() {
+        for (i = 0; i < count; i++) {
+            document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:" + document.body.clientWidth + "px";
+        }
+        document.getElementById("scroller").style.cssText = " width:" + document.body.clientWidth * count + "px";
+    };
+</script>
+<div data-role="content" class="content">
+    <div class="container">
+        <div class="container_main_3" >
+            <a href="/weixin/gongn" class="pic0">
+                <div class="img1" style="background:url(/static/weixin/qt/upload/img/1280278480/20131022/13824218586725.png) top center no-repeat; background-size:contain"></div>
+                <div class="text1">功能体验</div>
+            </a>
+        </div>
+        <div class="container_main_4" >
+            <a href="/weixin/anl" data-role="none">
+                <div class="img" style="background:url(/static/weixin/qt/upload/img/1280278480/20131022/13824218794088.png) top center no-repeat; background-size:contain"></div>
+                <div class="text">经典案例</div>
+            </a>
+        </div>
+        <div class="container_main_1">
+            <a href="/weixin/meit" data-role="none">
+                <div class="img" style="background:url(/static/weixin/qt/upload/img/1280278480/20131022/13824218954072.png) top center no-repeat; background-size:contain"></div>
+                <div class="text">媒体报道</div>
+            </a><a href="/weixin/jiam" data-role="none">
+                <div class="img" style="background:url(/static/weixin/qt/upload/img/1280278480/20131022/13824219138371.png) top center no-repeat; background-size:contain"></div>
+                <div class="text">加盟合作</div>
+            </a>        </div>
+        <div class="container_main_2">
+            <a href="/weixin/guany" data-role="none">
+                <div class="img" style="background:url(/static/weixin/qt/upload/img/1280278480/20131022/13824220472315.png) top center no-repeat; background-size:contain"></div>
+                <div class="text">关于我们</div>
+            </a><a href="/weixin/chouj" data-role="none">
+                <div class="img" style="background:url(/static/weixin/qt/upload/img/1280278480/20131022/13824220659672.png) top center no-repeat; background-size:contain"></div>
+                <div class="text">幸运抽奖</div>
+            </a>        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/static/weixin/qt/js/common/jquery.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/g.base.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/iscroll.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/alert.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/common.js"></script>
+<script type="text/javascript">
+    var myScroll;
+    function loaded() {
+        myScroll = new iScroll('wrapper', {
+            snap: true,
+            momentum: false,
+            hScrollbar: false,
+            onScrollEnd: function() {
+                document.querySelector('#indicator > li.active').className = '';
+                document.querySelector('#indicator > li:nth-child(' + (this.currPageX + 1) + ')').className = 'active';
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+</body>
+</html>

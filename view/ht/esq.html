@@ -1,0 +1,81 @@
+{% extends "html/common/base_ht.html" %}
+
+
+{% block content %}
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>发送客服消息</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <form action="/weixin/esqSend/" method="post" class="form-horizontal ui-formwizard"  name="form2" onsubmit="return checkSubmit();">
+              <input name="msgId"  type='hidden' value='{{msg.id}}' />
+              <input name="openId"  type='hidden' value='{{msg.openId}}' />
+			       <div id="form-wizard-1" class="step ui-formwizard-content" style="display: block; ">
+                <div class="control-group">
+                  <label class="control-label">咨询人：</label>
+                  <div class="controls">
+                    <a href="/weixin/userDetail/?oi={{ msg.openId }}" TARGET="_self">{{msg.openId}}</a>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">咨询内容：</label>
+                  <div class="controls">
+                    {{msg.message}}
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">回复类型：</label>
+                  <div class="controls">
+                    <select name='msgType'>
+                      <option value='0' selected>文本消息</option>
+                      <option value='1'>图片消息</option>
+                      <option value='2'>语音消息</option>
+                      <option value='3'>视频消息</option>
+                      <option value='4'>音乐消息</option>
+                      <option value='5'>图文消息</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">回复内容：</label>
+                  <div class="controls">
+                    <input name="answer" type="text" value="{{msg.answer}}" style="width:300px" width='200' height='100'></input>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button class="btn btn-success" type="submit">提交</button>
+                  <button class="btn btn-primary" type="reset" onclick="javascript:history.back()";">返回</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+
+{% block javascript %}
+
+    $(function(){
+      $("#sidebar ul li:contains('{{menu_name}}')").addClass("active open");
+    });
+
+    function checkSubmit()
+    {
+      
+      if(document.form2.answer.value=="")
+      {
+        document.form2.answer.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: '消息内容不能为空！'
+        });
+        return false;
+      }
+    }
+{% endblock %}

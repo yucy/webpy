@@ -1,0 +1,151 @@
+{% extends "html/common/base_ht.html" %}
+
+
+{% block content %}
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>基本资料</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <form action="edit_baseinfo.php" method="post" class="form-horizontal ui-formwizard"  name="form2" onsubmit="return checkSubmit();">
+              <input type="hidden" name="dopost" value="save" />
+			       <div id="form-wizard-1" class="step ui-formwizard-content" style="display: block; ">
+                <div class="control-group">
+                  <label class="control-label">帐号类型：</label>
+                  <div class="controls"> 个人 </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">用户名：</label>
+                  <div class="controls">yuzjang </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">昵称：</label>
+                  <div class="controls">
+                    <input name="uname" type="text" id="uname" value="yuzjang" style="width:300px"/>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">原登陆密码：</label>
+                  <div class="controls">
+                    <input name="oldpwd" type="password" id="oldpwd" style="width:300px" />
+				          </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">新密码：</label>
+                  <div class="controls">
+                    <input name="userpwd" type="password" id="userpwd" style="width:300px" />
+                    <span id="_userpwdok">(不修改密码请保留此项为空)</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">确认新密码：</label>
+                  <div class="controls">
+                    <input name="userpwdok" type="password" id="userpwdok" value="" style="width:300px" />
+                  <span id="_userpwdok2">(不修改密码请保留此项为空)</span> </span>
+                  </div>
+                </div>
+                 <div class="control-group">
+    				          <label class="control-label"><span class="tdl">电子邮箱</span>：</label>
+                      <div class="controls">
+                              <input name="email" type="text" id="email" value="yuzjang@126.com" readonly="readonly"/>
+                              <br>
+                              <span id="_email">(如需修改电子邮箱，请联系站长！)</span>
+              				</div>
+                </div>
+                <!--
+                <div class="control-group">
+          				<label class="control-label">性别：</label>
+                        <div class="controls">
+                      <input type="radio" name="sex" value="男" />
+                      男 &nbsp;
+                      <input type="radio" name="sex" value="女" />
+                      女 &nbsp;
+                      <input type="radio" name="sex" value="保密'" />
+                      保密 </div>
+                </div>
+              -->
+                <div class="form-actions">
+                  <button class="btn btn-success" type="submit">提交</button>
+                  <button class="btn btn-primary" type="reset" onclick="location.reload();">重置</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+
+{% block script %}
+  <script src="/static/weixin/js/jquery.ui.custom.js"></script> 
+  <script src="/static/weixin/js/jquery.uniform.js"></script> 
+  <script src="/static/weixin/js/select2.min.js"></script> 
+  <script src="/static/weixin/js/jquery.dataTables.min.js"></script> 
+  <script src="/static/weixin/js/matrix.tables.js"></script> 
+{% endblock %}
+
+
+{% block javascript %}
+
+    $(function(){
+      $("#sidebar ul li:contains('{{menu_name}}')").addClass("active open");
+    });
+
+    function checkSubmit()
+    {
+      if(document.form2.oldpwd.value=='')
+      {
+        document.form2.oldpwd.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: '旧密码必须填写！'
+        });
+        return false;
+      }
+      if(document.form2.userpwdok.value!=document.form2.userpwd.value)
+      {
+        document.form2.userpwdok.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: '两次密码不一致！'
+        });
+        return false;
+      }
+      if(document.form2.email.value=="")
+      {
+        document.form2.email.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: 'Email不能为空！'
+        });
+        return false;
+      }
+      if(document.form2.uname.value=="")
+      {
+        document.form2.uname.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: '用户昵称不能为空！'
+        });
+        return false;
+      }
+      if(document.form2.vdcode.value=="")
+      {
+        document.form2.vdcode.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: '验证码不能为空！'
+        });
+        return false;
+      }
+    }
+{% endblock %}

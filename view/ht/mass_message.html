@@ -1,0 +1,54 @@
+{% extends "html/common/base_ht.html" %}
+
+
+{% block content %}
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>群发消息</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <form action="/weixin/massSend/" method="post" class="form-horizontal ui-formwizard"  name="form2" onsubmit="return checkSubmit();">
+			       <div id="form-wizard-1" class="step ui-formwizard-content" style="display: block; ">
+                <div class="control-group">
+                  <label class="control-label">消息内容：</label>
+                  <div class="controls">
+                    <input name="content" type="text" style="width:300px"/>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button class="btn btn-success" type="submit">提交</button>
+                  <button class="btn btn-primary" type="reset" onclick="location.reload();">重置</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+
+{% block javascript %}
+
+    $(function(){
+      $("#sidebar ul li:contains('{{menu_name}}')").addClass("active open");
+    });
+
+    function checkSubmit()
+    {
+      
+      if(document.form2.content.value=="")
+      {
+        document.form2.content.focus();
+        art.dialog({
+        title:'友情提示!',
+        time: 2,
+        content: '消息内容不能为空！'
+        });
+        return false;
+      }
+    }
+{% endblock %}

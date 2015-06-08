@@ -1,0 +1,61 @@
+
+{% extends "html/common/base_ht.html" %}
+
+{% block content %}
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+          <h5>消息列表</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>OPEN_ID</th>
+                <th>内容</th>
+                <th>发起时间</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for msg in modelList %}
+              <tr class="odd gradeX">
+                <td style="text-align:center">{{ forloop.counter }}</td>
+                <td style="text-align:center"><a href="/weixin/userDetail/?oi={{ msg.openId }}" TARGET="_self">{{ msg.openId }}</a></td>
+                <td style="text-align:center">{{ msg.message }}</td> 
+                <td style="text-align:center">{{ msg.updateTime }}</td> 
+                <td style="text-align:center">
+                  {% if msg.status == '0' %}
+                    <font color="red">待答复</font>
+                  {% else %}
+                    <font  color="blue">已答复</font>
+                  {% endif %}
+                </td> 
+                <td style="text-align:center">
+                  <a href="/weixin/ESQ/?msgId={{ msg.id }}" TARGET="_self">答复</a>
+                </td> 
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% if show_first %}
+          <a href='/weixin/msgList/?page={{prev_page}}'>上一页</a>&nbsp;
+          {% endif %}
+          {% if show_end %}
+          <a href='/weixin/msgList/?page={{next_page}}'>下一页</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block javascript %}
+  $(function(){
+    $("#sidebar ul li:contains('{{menu_name}}')").addClass("active open");
+  });
+{% endblock %}

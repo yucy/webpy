@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{{menu_name}}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/static/favicon.ico">
+<link rel="stylesheet" href="/static/weixin/ht/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/weixin/ht/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/static/weixin/ht/css/uniform.css" />
+<link rel="stylesheet" href="/static/weixin/ht/css/select2.css" />
+<link rel="stylesheet" href="/static/weixin/ht/css/matrix-style.css" />
+<link rel="stylesheet" href="/static/weixin/ht/css/matrix-media.css" />
+<link href="/static/weixin/ht/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<script type="text/javascript" src="/static/weixin/ht/js/jquery.min.js"></script>
+
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1><a href="/weixin/center">Center</a></h1>
+</div>
+<!--close-Header-part--> 
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav">
+    <li><a title="" href="#" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">{{username}}</span></a>
+    </li>
+    <li><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> 
+      <span class="text">消息提醒</span>  </a>
+    </li>
+    <li class=""><a title="" href="/weixin/edit"><i class="icon icon-cog"></i> <span class="text">用户设置</span></a></li>
+    <li class=""><a title="" href="/weixin/login"><i class="icon icon-share-alt"></i> <span class="text">退出登陆</span></a></li>
+  </ul>
+</div>
+<div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-th"></i>管理菜单</a>
+  <ul>
+    <li><a href="/weixin/center"><i class="icon icon-home"></i> <span>管理中心</span></a> </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>消息管理</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="/weixin/mass">群发消息</a></li>
+        <li><a href="/weixin/msgList">消息记录</a></li>
+        <li><a href="/weixin/token">token查看</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>数据管理</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="#">文章管理</a></li>
+        <li><a href="#">发布文章</a></li>
+        <li><a href="#">上传素材</a></li>
+        <li><a href="/weixin/menu">更新菜单</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>个人资料</span> <span class="label label-important">2</span></a>
+      <ul>
+        <li><a href="/weixin/editUser">基本资料</a></li>
+        <li><a href="/weixin/users">关注者信息</a></li>
+      </ul>
+    </li>
+    <li><a href="/weixin/center"><i class="icon icon-home"></i> <span>返回首页</span></a> </li>
+  </ul>
+</div>
+
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/weixin/center" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a>>>{{menu_name}}</div>
+    <!--<h1>管理中心</h1>-->
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="widget-box">
+      <div class="widget-title"> <span class="icon"> <i class="icon-hand-right"></i> </span>
+        <h5>快捷操作</h5>
+      </div>
+      <div class="widget-content"> 
+        <a href="/weixin/mass" class="btn btn-warning">群发消息</a> 
+        <a href="#" class="btn btn-info">更换菜单</a> 
+        <a href="#" class="btn btn-primary">上传素材</a> 
+        <!--
+        <a href="#" class="btn btn-success">每日签到</a> 
+        <a href="#" class="btn btn-inverse">发布模板</a> 
+        <a href="#" class="btn btn-danger">充值豆豆</a> 
+        -->
+      </div>    
+    </div>
+    {% block content %}{% endblock %}
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div id="footer" class="span12">Copyright © 2011-2013 http:/xxx  版权所有</div>
+</div>
+
+<script src="/static/weixin/ht/js/bootstrap.min.js"></script> 
+<script src="/static/weixin/ht/js/matrix.js"></script> 
+{% block script %}{% endblock %}
+<script type="text/javascript">
+{% block javascript %}{% endblock %}
+</script>
+</body>
+</html>

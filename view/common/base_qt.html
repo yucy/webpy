@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="/static/weixin/qt/js/common/public.css" />
+<link type="text/css" rel="stylesheet" href="/static/weixin/qt/js/Index/wiying/light/index.css" />
+
+</head>
+
+<body>
+<div class="header">
+  <a data-rel="back" data-role="none" class="back"><p></p></a>
+  <a data-role="none" href="/weixin/index"><p></p></a>
+  <a data-role="none" class="contect"><p></p></a>
+  <a data-role="none" class="links"><p></p></a>
+</div>
+{% block content %}{% endblock %}
+
+<div class="touch" style="display:none">
+    <div class="touch-content">
+        <div class="touch-bj-3">
+            <a href="tel_3A400-102-8822" data-role="none">
+                <p class="icon tel"></p>
+                <p class="text">加盟热线</p>
+            </a><a href="tel_3A027-87659622" data-role="none">
+                <p class="icon tel"></p>
+                <p class="text">联系我们</p>
+            </a><a href="../api.map.baidu.com/marker@location=30.511947,114.427889&title=_25E6_25AD_25A6_25E6_25B1_2589_25E5_25BE_25AE_25E8_25B5_25A2_25E9_2590D65CE2235" data-role="none">
+                <p class="icon map"></p>
+                <p class="text">一键导航</p>
+            </a>        </div>
+    </div>
+</div>
+<!--
+<div class="sidebar">
+    <a href="index.php@g=Wap&m=Index&a=index&token=1280278480&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">网站首页</p>
+        <p class="pic"></p>
+    </a>
+    <a href="index.php@g=Wap&m=Index&a=lists&classid=392&token=1280278480&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">功能体验</p>
+        <p class="pic"></p>
+    </a><a href="index.php@g=Wap&m=Index&a=lists&classid=238&token=1280278480&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">经典案例</p>
+        <p class="pic"></p>
+    </a><a href="index.php@g=Wap&m=Index&a=lists&classid=393&token=1280278480&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">媒体报道</p>
+        <p class="pic"></p>
+    </a><a href="index.php@g=Wap&m=Index&a=lists&classid=237&token=1280278480&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">加盟合作</p>
+        <p class="pic"></p>
+    </a><a href="index.php@g=Wap&m=Index&a=content&token=1280278480&id=10&wecha_id=&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">关于我们</p>
+        <p class="pic"></p>
+    </a><a href="index.php@g=Wap&m=Index&a=lists&classid=245&token=1280278480&loveU=mp.weixin.qq.com" data-role="none">
+        <p class="text">幸运抽奖</p>
+        <p class="pic"></p>
+    </a>
+</div>
+-->
+<div class="bj" style="display:none"></div>
+{% block userjJs %}{% endblock %}
+
+<script type="text/javascript" src="/static/weixin/qt/js/common/jquery.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/alert.js"></script>
+<script type="text/javascript" src="/static/weixin/qt/js/common/common.js"></script>
+</body>
+</html>
