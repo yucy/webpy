@@ -6,8 +6,11 @@ $def with (user)
 </head>
 <body>
 
-    <p>$user['name']</p>
-    <p>$user['passwd']</p>
+    $#遍历数据库
+    $for u in user['data']:
+        <p>用户名：$u['name'] ， 密码：$u['passwd']</p>
+
+    <p>$user['testData']</p>
     <button id="b1" >点击加一</button>
     <input id="text" type="text" value="0"> </input>
 

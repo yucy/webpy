@@ -1,7 +1,7 @@
-import src.action.loginAction as login
+import src.action.login as login
 
 urls = (
-        '/hello',login.hello,
+        '/login',login.login,
         )
 
 
