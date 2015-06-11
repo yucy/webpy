@@ -74,14 +74,14 @@ class base:
 
 	# 自定义模板数据
 	def assign(self,key,value=''):
+		# 如果key是个字典集合，则合并
 		if type(key) == dict:
 			# 字典合并，这样写相当于：temp = self.tplData.copy() temp.update(key)
 			self.tplData = dict(self.tplData,**key) 
 		else:
 			self.tplData[key] = value
 
-	# 渲染页面
+	# 渲染页面(后台)
 	def render(self,tplName):
 		self.tplData['render'] = web.template.render('view',globals=self.globalTplFunc)
 		return getattr(self.tplData['render'],tplName)(self.tplData)
-		

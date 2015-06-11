@@ -1,0 +1,68 @@
+$def with (data)
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+        <title>用户登陆</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="/static/favicon.ico">
+		<link rel="stylesheet" href="/static/weixin/ht/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/static/weixin/ht/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="/static/weixin/ht/css/matrix-login.css" />
+        <link href="/static/weixin/ht/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div id="loginbox">            
+            <form id="loginform" class="form-vertical" method="post" action="/weixin/center/">
+			<input type="hidden" name="fmdo" value="login">
+      <input type="hidden" name="dopost" value="login">
+      <input type="hidden" name="gourl" value="/member/buy.php">
+				 <div class="control-group normal_text"> <h3><img src="/static/weixin/ht/images/logo.png" alt="Logo" /></h3></div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-user"></i></span><input name="username" id="txtUsername" type="text" placeholder="用户名" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input name="pwd" type="password" id="txtPassword" placeholder="密码" />
+                        </div>
+                    </div>
+                </div>
+				                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">忘记密码？</a></span>
+					<span class="pull-right"><a href="index_do.php�fmdo=user&dopost=regnew.html" class="btn btn-success" /> 注册</a></span>
+                    <span class="pull-right"><button type="submit" class="btn btn-success" /> 登陆</button></span>
+                </div>
+            </form>
+            <form id="recoverform" action="repassword.php" class="form-vertical">
+			<input type="hidden" name="dopost" value="getpwd">
+			<input type="hidden" name="gourl" value="login.php">
+				<p class="normal_text">请输入您注册时使用的用户名和邮箱！</p>
+				
+                    <div class="controls">
+						<div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-user"></i></span><input name="userid" type="text" placeholder="Username" />
+                        </div>
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" name="mail" placeholder="E-mail地址" />
+                        </div>
+                    </div>
+               
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; 返回登陆</a></span>
+                    <span class="pull-right"><button type="submit" class="btn btn-info"/>找回</button></span>
+                </div>
+            </form>
+        </div>
+        
+        <script src="/static/weixin/ht/js/jquery.min.js"></script>  
+        <script src="/static/weixin/ht/js/matrix.login.js"></script> 
+    </body>
+
+</html>

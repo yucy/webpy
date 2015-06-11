@@ -1,7 +1,8 @@
-import src.action.login as login
+import src.action.basicModule as basic
 
 urls = (
-        '/login',login.login,
+		'/','src.action.basicModule.index',
+        '/login',basic.login,
         )
 
 

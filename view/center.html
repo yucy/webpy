@@ -1,0 +1,45 @@
+
+{% extends "html/common/base_ht.html" %}
+
+{% block content %}
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+          <h5>管理概况</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>用户昵称</th>
+                <th>用户身份</th>
+                <th>用户状态</th>
+                <th>剩余金币</th>
+                <th>剩余积分</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd gradeX">
+                <td style="text-align:center">admin</td>
+                <td style="text-align:center"><b>注册管理</b></td>
+                <td style="text-align:center">审核通过，请
+                  <a href='/weixin/edit'>完善资料</a>！
+                </td> 
+                <td style="text-align:center">0 个</td>
+                <td style="text-align:center">187 分</td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block javascript %}
+  $(function(){
+    $("#sidebar ul li:contains('{{menu_name}}')").addClass("active");
+  });
+{% endblock %}

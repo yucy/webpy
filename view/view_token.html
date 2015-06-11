@@ -1,0 +1,38 @@
+{% extends "html/common/base_ht.html" %}
+
+
+{% block content %}
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>查看token信息</h5>
+          </div>
+          <div class="widget-content nopadding">
+              <form class="form-horizontal">
+  			       <div id="form-wizard-1" class="step ui-formwizard-content" style="display: block; ">
+                  <div class="control-group">
+                    <label class="control-label">token：</label>
+                    <div class="controls">{{token}} </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">过期时间：</label>
+                    <div class="controls">{{expires_in}} 秒</div>
+                  </div>
+                </div>
+              </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+
+{% block javascript %}
+
+    $(function(){
+      $("#sidebar ul li:contains('{{menu_name}}')").addClass("active open");
+    });
+
+{% endblock %}
