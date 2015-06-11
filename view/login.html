@@ -1,4 +1,4 @@
-$def with (data)
+$def with (tplData)
 <!DOCTYPE html>
 <html lang="en">
     
@@ -15,7 +15,7 @@ $def with (data)
     <body>
 
         <div id="loginbox">            
-            <form id="loginform" class="form-vertical" method="post" action="/weixin/center/">
+            <form id="loginform" class="form-vertical" method="post" action="/login">
 			<input type="hidden" name="fmdo" value="login">
       <input type="hidden" name="dopost" value="login">
       <input type="hidden" name="gourl" value="/member/buy.php">
@@ -23,14 +23,14 @@ $def with (data)
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"><i class="icon-user"></i></span><input name="username" id="txtUsername" type="text" placeholder="用户名" />
+                            <span class="add-on bg_lg"><i class="icon-user"></i></span><input name="username" id="txtUsername" type="text" placeholder="用户名" value="$tplData['name']"/>
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input name="pwd" type="password" id="txtPassword" placeholder="密码" />
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input name="passwd" type="password" id="txtPassword" placeholder="密码"  value="$tplData['passwd']"/>
                         </div>
                     </div>
                 </div>
