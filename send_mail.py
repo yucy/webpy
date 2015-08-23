@@ -6,13 +6,13 @@ import smtplib
 from email.mime.text import MIMEText
 mailto_list=['cy.yu@139.com']
 # 发送者信息
-mail_host='smtp.126.com' # 邮件服务器
-mail_user='yuzjang' # 用户名
-mail_pass='*****' # 口令
-mail_postfix='126.com' # 发件箱的后缀
+mail_host='smtp.163.com' # 邮件服务器
+mail_user='yuconyu' # 用户名
+mail_pass= 'fzfspybbqqxmfllq'# 'test123456' # 口令
+mail_postfix='163.com' # 发件箱的后缀
 
 def send_mail(to_list,sub,content):
-	me = '余从玉'+'<'+mail_user+'@'+mail_postfix+'>'
+	me = 'test'+'<'+mail_user+'@'+mail_postfix+'>'
 	msg = MIMEText(content,_subtype='plain',_charset='gb2312')
 	msg['Subject'] = sub
 	msg['From'] = me
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 	# 邮件标题
 	title = u'邮件测试'
 	# 邮件内容
-	content = u'你好，这是一封测试邮件。one,,,.'
+	content = u'你好，这是一封测试邮件。'
 	if send_mail(mailto_list,title ,content):
 		print '发送成功'
 	else:
